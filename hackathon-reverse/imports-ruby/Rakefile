@@ -1,0 +1,7 @@
+#! /usr/bin/env rake
+
+task :default do
+	sh "./import_rel.rb ../../../101repo/contributions/javaParser > rel.dot"
+	sh "dot -T'svg' rel.dot > rel.svg"
+	#sh "open rel.svg"
+end
