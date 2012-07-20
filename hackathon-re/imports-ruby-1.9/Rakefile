@@ -1,0 +1,5 @@
+task :default do
+	sh "ruby import_rel-ruby-1.9.rb ../../../101repo/contributions/javaParser > rel.dot"
+	sh "dot -T'svg' rel.dot > rel.svg"
+	#sh "open rel.svg"
+end
