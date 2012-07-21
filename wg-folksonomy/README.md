@@ -2,6 +2,6 @@ SoTeSoLa
 ========
 
 Software Technologies &amp; Software Languages
-Working Group on Obtaining an Ontology of Software Technologies and Languages
+Working group on a SoTeSoLa-related folksonomy
 
 See http://github.com/SoTeSoLa/SoTeSoLa/wiki/Folksonomy

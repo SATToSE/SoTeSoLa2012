@@ -2,6 +2,6 @@ SoTeSoLa
 ========
 
 Software Technologies &amp; Software Languages
-Hackathon on Reverse Engineering the 101companies Repository
+Hackathon on reverse engineering the 101companies repository
 
 See http://github.com/SoTeSoLa/SoTeSoLa/wiki/Reverse-Engineering

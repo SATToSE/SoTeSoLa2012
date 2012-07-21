@@ -2,6 +2,6 @@ SoTeSoLa
 ========
 
 Software Technologies &amp; Software Languages
-Working Group on Linked Data
+Working group on Linked Data meets SoTeSoLa
 
 See http://github.com/SoTeSoLa/SoTeSoLa/wiki/LinkedData
