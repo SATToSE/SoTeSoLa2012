@@ -1,6 +1,3 @@
-# 361 chars, optimized for readability and maintainability:
-t=lambda{|p|Hash[(Dir.new(p).entries-%w[. ..]).map{|f|f=p+'/'+f
-File.directory?(f)?t[f]:f[/\.java$/]?{f=>open(f).map{|l|l=~/^import +([^ ]+ +)?([^ ]+) *;/&&$2}.compact}:[]}.map(&:to_a).flatten(1)]}
-p=$*[0];r=Dir.chdir(p){t['org']}
-m=lambda{|s|s.split(/[.\/]/)[0..-2].join'.'}
-puts ['digraph{node[]',r.map{|k,a|["<#{m[k]}>[]",a.map{|v|"<#{m[k]}>-><#{v}>"}]},'}']
+# 212 chars, optimized for readability and maintainability:
+m=lambda{|s|"<#{s[0..-6].tr '/','.'}>"}
+puts 'digraph{node[]',Hash[Dir.chdir($*[0]){Dir['**/*.java'].map{|f|[f,open(f).grep(/^import /){|l|l[/\w+\.[^ ;]+/]}]}}].map{|k,a|[m[k]+'[]',a.map{|v|m[k]+"-><#{v}>"}]},'}'
