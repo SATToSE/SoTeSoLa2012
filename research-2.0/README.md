@@ -2,6 +2,6 @@ SoTeSoLa
 ========
 
 Software Technologies &amp; Software Languages
-Working group on Research 2.0 meets SoTeSoLa
+Introduction to Research 2.0
 
 See http://github.com/SoTeSoLa/SoTeSoLa/wiki/Research
