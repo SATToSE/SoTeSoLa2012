@@ -9,6 +9,7 @@ for mw in glob.glob( os.path.join(sys.argv[1], '*.mediawiki') ):
 	m = m[0].upper()+m[1:]
 	for l in f.read().split('[[')[1:]:
 		r = l.split(']]')[0].split('|')[0].replace(' ','-')
+		if r.startswith('https://'): continue
 		r = r[0].upper()+r[1:]
 		if (m,r) not in rel: rel.append((m,r))
 	f.close()
