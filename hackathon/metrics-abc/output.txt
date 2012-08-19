@@ -1,0 +1,31 @@
+################################################################
+ABC metrics (assignments, branches, conditions)
+for "../../../101repo/contributions/rubyonrails":
+################################################################
+bundle exec metric_abc $( find ../../../101repo/contributions/rubyonrails -iname *.rb )
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > create: 14
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > update: 14
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > update: 14
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > update: 14
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > create: 11
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > destroy: 9
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > destroy: 9
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > destroy: 9
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > index: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > new: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > show: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > index: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > new: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > show: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > index: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > show: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > new: 7
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > create: 5
+../../../101repo/contributions/rubyonrails/companies/db/migrate/20120104120417_create_departments.rb > CreateDepartments > change: 3
+../../../101repo/contributions/rubyonrails/companies/db/migrate/20120104165318_create_employees.rb > CreateEmployees > change: 3
+../../../101repo/contributions/rubyonrails/companies/db/migrate/20120102171200_create_companies.rb > CreateCompanies > change: 3
+../../../101repo/contributions/rubyonrails/companies/app/controllers/companies_controller.rb > CompaniesController > edit: 2
+../../../101repo/contributions/rubyonrails/companies/app/controllers/departments_controller.rb > DepartmentsController > edit: 2
+../../../101repo/contributions/rubyonrails/companies/app/controllers/employees_controller.rb > EmployeesController > edit: 2
+../../../101repo/contributions/rubyonrails/companies/app/controllers/home_controller.rb > HomeController > index: 1
+../../../101repo/contributions/rubyonrails/companies/test/performance/browsing_test.rb > BrowsingTest > test_homepage: 1
