@@ -1,0 +1,10 @@
+source 'http://rubygems.org'
+
+gem "reek", "~> 1.2.12"
+
+
+
+# Local Variables:
+# mode: ruby
+# End:
+
