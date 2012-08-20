@@ -195,9 +195,9 @@ def main():
 	)
 	
 	if exc:
-		#if isinstance( exc, KeyboardInterrupt ):
-		#	print >> sys.stderr, "Keyboard interrupt."
-		#	exit(1)
+		if isinstance( exc, KeyboardInterrupt ):
+			print >> sys.stderr, "Keyboard interrupt."
+			exit(1)
 		
 		raise exc
 
