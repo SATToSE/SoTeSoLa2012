@@ -1,0 +1,10 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    metric_abc (0.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  metric_abc (~> 0.0.3)

@@ -1,0 +1,42 @@
+################################################################
+Reek code smell detector
+for "../../../101repo/contributions/ruby":
+################################################################
+bundle exec reek ../../../101repo/contributions/ruby
+../../../101repo/contributions/ruby/company/company.rb -- 3 warnings:
+  Company has no descriptive comment (IrresponsibleModule)
+  Company#cut has the variable name 'topDept' (UncommunicativeVariableName)
+  Company#total has the variable name 'topDept' (UncommunicativeVariableName)
+../../../101repo/contributions/ruby/company/dept.rb -- 1 warning:
+  Dept has no descriptive comment (IrresponsibleModule)
+../../../101repo/contributions/ruby/company/employee.rb -- 1 warning:
+  Employee has no descriptive comment (IrresponsibleModule)
+../../../101repo/contributions/ruby/company/person.rb -- 1 warning:
+  Person has no descriptive comment (IrresponsibleModule)
+../../../101repo/contributions/ruby/company/subunit.rb -- 3 warnings:
+  Subunit has no descriptive comment (IrresponsibleModule)
+  Subunit#cut calls pu twice (DuplicateMethodCall)
+  Subunit#total calls pu twice (DuplicateMethodCall)
+../../../101repo/contributions/ruby/tests.rb -- 22 warnings:
+  Tests has no descriptive comment (IrresponsibleModule)
+  Tests has the variable name '@sampleCompany' (UncommunicativeVariableName)
+  Tests#setup calls research.subunits twice (DuplicateMethodCall)
+  Tests#setup has approx 77 statements (TooManyStatements)
+  Tests#setup has the variable name 'craigE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'dev1' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'dev11' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'dev11S1' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'dev1S1' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'developmentS1' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'erikE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'joeE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'karlE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'klausE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'ralfE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'rayE' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'researchS1' (UncommunicativeVariableName)
+  Tests#setup has the variable name 'researchS2' (UncommunicativeVariableName)
+  Tests#setup refers to research more than self (FeatureEnvy)
+  Tests#test_cut calls @sampleCompany.total twice (DuplicateMethodCall)
+  Tests#test_cut has the variable name 'newTotal' (UncommunicativeVariableName)
+  Tests#test_cut has the variable name 'preCutTotal' (UncommunicativeVariableName)
