@@ -1,4 +1,4 @@
-module File1
+module CallRef
 
 import lang::java::jdt::Java;
 import lang::java::jdt::JavaADT;
