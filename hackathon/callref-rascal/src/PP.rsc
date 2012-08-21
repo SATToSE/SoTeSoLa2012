@@ -1,4 +1,4 @@
-@contributor{Anastasia Izmaylova - SWAT, CWI}
+@contributor{Anastasia Izmaylova - ai@cwi.nl - SWAT, CWI}
 module PP
 
 import lang::java::jdt::Java;

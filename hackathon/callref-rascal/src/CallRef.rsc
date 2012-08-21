@@ -1,4 +1,4 @@
-@contributor{Anastasia Izmaylova - SWAT, CWI}
+@contributor{Anastasia Izmaylova - ai@cwi.nl - SWAT, CWI}
 @contributor{Jan Kurš}
 @contributor{Vadim Zaytsev - vadim@grammarware.net - SWAT, CWI}
 module CallRef
@@ -49,30 +49,30 @@ public rel[str, int, bool, bool] processNode(AstNode body, rel[str, int, bool, b
 	top-down-break visit (body) {
 		case forStatement(_, Option[AstNode] optionalBooleanExpression, list[AstNode] updaters, AstNode body): {   
 				upper = true;
-				names += (some(AstNode e) := optionalBooleanExpression) ? processNode(e, names, lower, upper) : {}; 
+				names = (some(AstNode e) := optionalBooleanExpression) ? processNode(e, names, lower, upper) : names; 
 				for(updater <- updaters) names += processNode(updater, names, lower, upper);
-				names += processNode(body, names, lower, upper);
+				names = processNode(body, names, lower, upper);
 		}
 		case ifStatement(AstNode booleanExpression, AstNode thenStatement, Option[AstNode] elseStatement): { 
-			  names += processNode(booleanExpression, names, lower, upper);
+			  names = processNode(booleanExpression, names, lower, upper);
 			  lower = true; 
-			  names += processNode(thenStatement, names, lower, upper);
-			  names += (some(AstNode e) := elseStatement) ? processNode(e, names, lower, upper) : {}; 
+			  names = processNode(thenStatement, names, lower, upper);
+			  names = (some(AstNode e) := elseStatement) ? processNode(e, names, lower, upper) : names; 
 		}
 		case switchStatement(AstNode expression, list[AstNode] statements): { 
-			  names += processNode(expression, names, lower, upper);
+			  names = processNode(expression, names, lower, upper);
 			  lower = true; 
-			  for(statement <- statements) names += processNode(statement, names, lower, upper); 
+			  for(statement <- statements) names = processNode(statement, names, lower, upper); 
 		}
 		case doStatement(AstNode body, AstNode whileExpression): { 
 			  upper = true; 
-			  names += processNode(body, names, lower, upper);
-			  names += processNode(whileExpression, names, lower, upper);
+			  names = processNode(body, names, lower, upper);
+			  names = processNode(whileExpression, names, lower, upper);
 		}
 		case whileStatement(AstNode expression, AstNode body): { 
 			  upper = true; 
-			  names += processNode(expression, names, lower, upper); 
-			  names += processNode(body, names, lower, upper); 
+			  names = processNode(expression, names, lower, upper); 
+			  names = processNode(body, names, lower, upper); 
 		}
 		case m:methodInvocation(Option[AstNode] optionalExpression, list[AstNode] genericTypes, str name, list[AstNode] typedArguments): {
 			n = toStr(m@bindings["methodBinding"]);
@@ -80,10 +80,10 @@ public rel[str, int, bool, bool] processNode(AstNode body, rel[str, int, bool, b
 			else {
 				tuple[int,bool,bool] c = getOneFrom(names[n]);
 				names = names - { <n, c[0], c[1], c[2]> } 
-							  + { <n, ( !(c[1]||lower) &&!(c[2]||upper) ) ? c[0] + 1 : c[0], c[1]||lower, c[2]||upper>};
+							  + { <n, ( !lower && !upper ) ? c[0] + 1 : c[0], c[1]||lower, c[2]||upper>};
 			}	
-			names += (some(AstNode e) := optionalExpression) ? processNode(e, names, lower, upper) : {};
-			for(arg <- typedArguments) names += processNode(arg, names, lower, upper);
+			names = (some(AstNode e) := optionalExpression) ? processNode(e, names, lower, upper) : names;
+			for(arg <- typedArguments) names = processNode(arg, names, lower, upper);
 		}
 	}
 	return names;
