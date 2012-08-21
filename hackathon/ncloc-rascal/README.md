@@ -10,3 +10,6 @@ This version does not account for:
 * multiline comments
 * nested comments
 * reporting on multiple files
+
+Contributors:
+* [http://github.com/grammarware Vadim Zaytsev]

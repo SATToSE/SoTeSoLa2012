@@ -9,3 +9,5 @@ All `*.py` files in the 101repo (which is expected to live at `../../../101repo`
 
 Yes, I know the code was written in rather quick and even more dirty.
 
+Contributors:
+* [http://github.com/philipp-kempgen Philipp Kempgen]

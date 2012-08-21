@@ -1,1 +1,4 @@
 This is an extremely simple Python program that visualises the relationship graph by analysing Java files and their imports. It performs simple lexical analysis of the source code in order to find import statements, composes a relation and pretty-prints it as a Dot graph which is then processed by Graphviz.
+
+Contributors:
+* [http://github.com/grammarware Vadim Zaytsev]
