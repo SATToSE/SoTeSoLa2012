@@ -1,5 +1,5 @@
 Repository with solution(s):
-* [http://github.com/tsdh/sotesola2012 sotesola2012 by tsdh]
+* [sotesola2012 by tsdh](http://github.com/tsdh/sotesola2012)
 
 Contributors:
-* [http://github.com/tsdh Tassilo Horn]
+* [Tassilo Horn](http://github.com/tsdh)

@@ -12,4 +12,4 @@ This version does not account for:
 * reporting on multiple files
 
 Contributors:
-* [http://github.com/grammarware Vadim Zaytsev]
+* [Vadim Zaytsev](http://github.com/grammarware)

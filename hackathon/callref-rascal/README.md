@@ -1,4 +1,4 @@
 Contributors:
-* [http://github.com/Anastassija Anastasia Izmaylova]
-* [http://scg.unibe.ch/staff/jankurs Jan Kurš]
-* [http://github.com/grammarware Vadim Zaytsev]
+* [Anastasia Izmaylova](http://github.com/Anastassija)
+* [Jan Kurš](http://scg.unibe.ch/staff/jankurs)
+* [Vadim Zaytsev](http://github.com/grammarware)

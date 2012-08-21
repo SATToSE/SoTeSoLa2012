@@ -1,2 +1,2 @@
 Contributors:
-* [http://github.com/philipp-kempgen Philipp Kempgen]
+* [Philipp Kempgen](http://github.com/philipp-kempgen)
