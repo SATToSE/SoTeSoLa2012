@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Project1
-Bundle-SymbolicName: Project1
+Bundle-Name: callref-rascal
+Bundle-SymbolicName: callref_rascal
 Bundle-Version: 1.0.0
 Require-Bundle: org.eclipse.imp.pdb.values,
  rascal
