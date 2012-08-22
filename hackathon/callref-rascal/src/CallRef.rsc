@@ -11,6 +11,7 @@ import Relation;
 import String;
 import List;
 import Set;
+import Map;
 import IO;
 
 import PP;
@@ -24,7 +25,7 @@ import util::Editors;
 public LineDecoration marker(loc f) {
 	int begin = f.begin.line;
 	int end = f.end.line;
-	return lineInfo = highlight(begin, "SoTeSoLa2012");
+	return lineInfo = highlight(begin, "SoTeSoLa2012 + <f>");
 }
 
 
@@ -35,11 +36,12 @@ public list[loc] projects =
 		|project://javaMultithreading/src|
 	];
 
-public void main()
+public tuple[list[map[str, str]], list[therel]] main()
 {
 	ds = processProjects(projects);
 	int i = 1;
 	map[str, str] nodesNames = ();
+	list[map[str, str]] lNodesNames = [];
 	list[Figure] gs = [];
 	list[Figure] nodes = [];
 	list[Edge] edges = [];
@@ -47,6 +49,7 @@ public void main()
 	{
 		nodes = [];
 		edges = [];
+		nodesNames = ();
 		for(n <- { *{n1,n2} | <str n1, str n2, int _, _, _, loc f, LineDecoration decor, list[LineDecoration] decors> <- d }) {
 			nodesNames[n] = "<substring(n,findLast(n," ")+1,findFirst(n,"("))><i>";
 			println("m<i> is <n>");
@@ -69,8 +72,10 @@ public void main()
 		//for(n<-nodes) render(n);
 		//render(graph(nodes, edges, hint("layered"), gap(30), std(size(50))));
 		gs += graph(nodes, edges, hint("layered"), gap(30), std(size(50)));
+		lNodesNames += invertUnique(nodesNames);
 	}
 	render(vcat(gs));
+	return <lNodesNames, ds>;
 	//iprintln(d);
 }
 
@@ -151,3 +156,18 @@ public rel[str, int, bool, bool, list[LineDecoration]] processNode(AstNode body,
 	}
 	return names;
 }
+
+public void (int, str, str) view() =
+void (int s, str m1, str m2) {
+	tuple[list[map[str, str]], list[therel]] i = main();
+	println("Fetching <m1> from <i[0][s]>...");
+	m1 = i[0][s][m1];
+	m2 = i[0][s][m2];
+	if(<a,b,c,d,e,f,g,h> <- i[1][s], a == m1, b == m2) {
+		println(f);
+		println(g);
+		println(h);
+		edit(f,h);
+	};
+	return;
+};
