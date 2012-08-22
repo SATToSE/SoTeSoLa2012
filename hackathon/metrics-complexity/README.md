@@ -7,7 +7,9 @@ Call `make` for help.
 
 All `*.py` files in the 101repo (which is expected to live at `../../../101repo`) are files taken into consideration if you call one of the targets in the Makefile.
 
-Yes, I know the code was written in rather quick and even more dirty.
+Yes, I know the code was written rather quick and even more dirty.
+
+Look at `index.html` for example output.
 
 Contributors:
 * [Philipp Kempgen](http://github.com/philipp-kempgen)
