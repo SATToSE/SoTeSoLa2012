@@ -7,7 +7,9 @@ import lang::java::jdt::Java;
 import lang::java::jdt::JavaADT;
 import lang::java::jdt::JDT;
 
+import Relation;
 import String;
+import List;
 import Set;
 import IO;
 
@@ -26,41 +28,61 @@ public LineDecoration marker(loc f) {
 }
 
 
-public list[loc] projects = [|project://javaInheritance|];
+public list[loc] projects =
+	[
+		|project://javaComposition|,
+		|project://javaInheritance|,
+		|project://javaMultithreading/src|
+	];
 
 public void main()
 {
-	d = processProjects(projects);
+	ds = processProjects(projects);
 	int i = 1;
 	map[str, str] nodesNames = ();
+	list[Figure] gs = [];
 	list[Figure] nodes = [];
 	list[Edge] edges = [];
-	for(n <- { *{n1,n2} | <str n1, str n2, int _, _, _, loc f, LineDecoration decor, list[LineDecoration] decors> <- d }) {
-		nodesNames[n] = "<substring(n,findLast(n," ")+1,findFirst(n,"("))><i>";
-		println("m<i> is <n>");
-		i += 1;
-		nodes += box(text(nodesNames[n]), id(nodesNames[n]), fillColor("red"));					
-	}
-	for(<str n1, str n2, int cx, bool low, bool hig, loc f, LineDecoration decor, list[LineDecoration] decors> <- d) {
-		if(n1 != n2) {
-			edges += edge(nodesNames[n1], nodesNames[n2],lineWidth(1+cx*2),
-			(low&&hig)?lineColor("Red"):
-			low?lineColor("Blue"):
-			hig?lineColor("Purple"):
-			lineColor("Green"),
-			toArrow(ellipse(size(10+cx)))
-			);
+	for (d <- ds)
+	{
+		nodes = [];
+		edges = [];
+		for(n <- { *{n1,n2} | <str n1, str n2, int _, _, _, loc f, LineDecoration decor, list[LineDecoration] decors> <- d }) {
+			nodesNames[n] = "<substring(n,findLast(n," ")+1,findFirst(n,"("))><i>";
+			println("m<i> is <n>");
+			i += 1;
+			nodes += box(text(nodesNames[n]), id(nodesNames[n]), fillColor("red"));					
 		}
-	};
-	println(nodes);
-	println(edges);
-	//for(n<-nodes) render(n);
-	render(graph(nodes, edges, hint("layered"), gap(30), std(size(50))));
+		for(<str n1, str n2, int cx, bool low, bool hig, loc f, LineDecoration decor, list[LineDecoration] decors> <- d) {
+			if(n1 != n2) {
+				edges += edge(nodesNames[n1], nodesNames[n2],lineWidth(1+cx*2),
+				(low&&hig)?lineColor("Red"):
+				low?lineColor("Blue"):
+				hig?lineColor("Purple"):
+				lineColor("Green"),
+				toArrow(ellipse(size(10+cx)))
+				);
+			}
+		};
+		println(nodes);
+		println(edges);
+		//for(n<-nodes) render(n);
+		//render(graph(nodes, edges, hint("layered"), gap(30), std(size(50))));
+		gs += graph(nodes, edges, hint("layered"), gap(30), std(size(50)));
+	}
+	render(vcat(gs));
 	//iprintln(d);
 }
 
-public rel[str, str, int, bool, bool, loc, LineDecoration, list[LineDecoration]] processProjects (list[loc] projects) 
-	= { *processProjectForCallRefs(project) | loc project <- projects };
+alias therel = rel[str, str, int, bool, bool, loc, LineDecoration, list[LineDecoration]];
+
+public list[therel] processProjects (list[loc] projects)
+{
+	rs = [ processProjectForCallRefs(project) | loc project <- projects ];
+	
+	intersect = ({ <e1,e2>| <str e1, str e2,_,_,_,_,_,_> <- rs[0] } | it & { <e1,e2>| <str e1, str e2, _,_,_,_,_,_> <- r } | r <- tail(rs) );
+	return [{ <e1,e2,a,b,c,d,f,g>| <str e1, str e2,a,b,c,d,f,g> <- r, <e1,e2> in intersect } | r <- rs];
+} 
 
 public list[str] processProjectForNames(loc project) {
 	list[str] names = [];
