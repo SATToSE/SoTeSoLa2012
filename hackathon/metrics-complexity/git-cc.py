@@ -117,6 +117,16 @@ def main():
 			'total_complexity': "{value:.2f} total Python codebase complexity",
 			'avg_complexity_per_file': "{value:.2f} avg. complexity per Python file",
 		}
+		metrics_value_formats = {
+			'num_files': "{value:d}",
+			'total_complexity': "{value:.2f}",
+			'avg_complexity_per_file': "{value:.2f}",
+		}
+		metrics_labels = {
+			'num_files': "number of Python files",
+			'total_complexity': "total Python codebase complexity",
+			'avg_complexity_per_file': "avg. complexity per Python file",
+		}
 		
 		for previous in reversed(sorted( revisions )):
 			rev = revisions[previous]
@@ -183,6 +193,106 @@ def main():
 					i += 1
 				
 				print >> fh, '</svg>'
+			
+			with open( os.path.basename(dir)+'-'+metric+'.html', 'wb' ) as fh:
+				print >> fh, '<!DOCTYPE html>'
+				print >> fh, '<html>'
+				print >> fh, '	<head>'
+				print >> fh, '		<title>Metrics</title>'
+				print >> fh, '		<script type="text/javascript" src="https://www.google.com/jsapi"></script>'
+				print >> fh, '		<script type="text/javascript">'
+				print >> fh, '			google.load( "visualization", "1", { packages: ["corechart"]});'
+				print >> fh, '			google.setOnLoadCallback( drawChart );'
+				print >> fh, '			function drawChart()'
+				print >> fh, '			{'
+				print >> fh, '				var data = google.visualization.DataTable();'
+				print >> fh, '				var data = new google.visualization.DataTable();'
+				print >> fh, '				data.addColumn( "string", "SHA" );  // implicit domain label col.'
+				print >> fh, '				data.addColumn( "number", '+repr(str( metrics_labels[metric] ))+' );  // implicit series 1 data col.'
+				print >> fh, '				data.addColumn({ type:"string", role:"tooltip" });  // annotation role col.'
+				print >> fh, '				data.addRows(['
+				
+				for previous in reversed(sorted( revisions )):
+					rev = revisions[previous]
+					
+					title = ('{value}\n@ {sha} as of {date}').format(
+						value  = rev[metric],
+						sha    = rev['sha'][0:6],
+						date   = rev['iso_time'],
+					)
+					
+					print >> fh, '[ {sha!r}, {value!r}, {title!r} ],'.format(
+						sha    = rev['sha'][0:6],
+						value  = rev[metric],
+						title  = title,
+					)
+				
+				print >> fh, '			]);'
+				print >> fh, '			var options = {'
+				print >> fh, '				title: "Metrics",'
+				print >> fh, '			};'
+				print >> fh, '			var chart = new google.visualization.LineChart('
+				print >> fh, '				document.getElementById( "chart-1" ));'
+				print >> fh, '			chart.draw( data, options );'
+				print >> fh, '		}'
+				print >> fh, '		</script>'
+				print >> fh, '	</head>'
+				print >> fh, '	<body>'
+				print >> fh, '		<div id="chart-1" style="width:99%; min-width:40em; height:99%; min-height:30em;"></div>'
+				print >> fh, '	</body>'
+				print >> fh, '</html>'
+	
+		with open( 'index.html', 'wb' ) as fh:
+			print >> fh, '<!DOCTYPE html>'
+			print >> fh, '<html>'
+			print >> fh, '	<head>'
+			print >> fh, '		<title>Metrics</title>'
+			print >> fh, '		<script type="text/javascript" src="https://www.google.com/jsapi"></script>'
+			print >> fh, '		<script type="text/javascript">'
+			print >> fh, '			google.load( "visualization", "1", { packages: ["corechart"]});'
+			print >> fh, '			google.setOnLoadCallback( drawChart );'
+			print >> fh, '			function drawChart()'
+			print >> fh, '			{'
+			
+			for metric in metrics:
+				print >> fh, '				var data_'+metric+' = google.visualization.DataTable();'
+				print >> fh, '				var data_'+metric+' = new google.visualization.DataTable();'
+				print >> fh, '				data_'+metric+'.addColumn( "string", "SHA" );  // implicit domain label col.'
+				print >> fh, '				data_'+metric+'.addColumn( "number", '+repr(str( metrics_labels[metric] ))+' );  // implicit series 1 data col.'
+				print >> fh, '				data_'+metric+'.addColumn({ type:"string", role:"tooltip" });  // annotation role col.'
+				print >> fh, '				data_'+metric+'.addRows(['
+				
+				for previous in reversed(sorted( revisions )):
+					rev = revisions[previous]
+					
+					title = (metrics_value_formats[metric]+'\n@ {sha} as of {date}').format(
+						value  = rev[metric],
+						sha    = rev['sha'][0:6],
+						date   = rev['iso_time'],
+					)
+					
+					print >> fh, '[ {sha!r}, {value!r}, {title!r} ],'.format(
+						sha    = rev['sha'][0:6],
+						value  = rev[metric],
+						title  = title,
+					)
+				
+				print >> fh, '			]);'
+				print >> fh, '			var options_'+metric+' = {'
+				print >> fh, '				title: '+ repr(str( metrics_labels[metric] )) +','
+				print >> fh, '			};'
+				print >> fh, '			var chart_'+metric+' = new google.visualization.LineChart('
+				print >> fh, '				document.getElementById( "chart-'+metric+'" ));'
+				print >> fh, '			chart_'+metric+'.draw( data_'+metric+', options_'+metric+' );'
+			
+			print >> fh, '		}'
+			print >> fh, '		</script>'
+			print >> fh, '	</head>'
+			print >> fh, '	<body>'
+			for metric in metrics:
+				print >> fh, '		<div id="chart-'+metric+'" style="width:99%; min-width:40em; height:20em;"></div>'
+			print >> fh, '	</body>'
+			print >> fh, '</html>'
 	
 	except (KeyboardInterrupt, Exception,) as e:
 		exc = e
