@@ -7,6 +7,7 @@ import lang::java::jdt::Java;
 import lang::java::jdt::JavaADT;
 import lang::java::jdt::JDT;
 
+import String;
 import Set;
 import IO;
 
@@ -25,25 +26,7 @@ public LineDecoration marker(loc f) {
 }
 
 
-public list[loc] projects = [|project://BLA/src|];
-
-public void brr() {
-	nodes = [ box(text("A"), id("A"), fillColor("lightBlue"), layer("A"), onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
-									println("A");
-									//edit(f, [decor] + decors);
-									return true;})), 
-          box(text("B"), id("B"), fillColor("lightBlue"), layer("B"), onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
-									println("B");
-									//edit(f, [decor] + decors);
-									return true;})), 
-          box(text("C"), id("C"), fillColor("lightBlue"), layer("C")), 
-          box(text("A1"), id("A1"), fillColor("lightGreen"), layer("A1")), 
-          box(text("B1"), id("B1"), fillColor("lightGreen"), layer("B1")), 
-          box(text("C1"), id("C1"), fillColor("lightGreen"), layer("C1"))
-        ];
-edges = [ edge("A", "B1"), edge("B1", "C")];
-render(graph(nodes, edges, hint("layered"), gap(20), std(size(100))));
-}
+public list[loc] projects = [|project://javaInheritance|];
 
 public void main()
 {
@@ -53,33 +36,26 @@ public void main()
 	list[Figure] nodes = [];
 	list[Edge] edges = [];
 	for(n <- { *{n1,n2} | <str n1, str n2, int _, _, _, loc f, LineDecoration decor, list[LineDecoration] decors> <- d }) {
-		nodesNames[n] = "m<i>";
+		nodesNames[n] = "<substring(n,findLast(n," ")+1,findFirst(n,"("))><i>";
 		println("m<i> is <n>");
 		i += 1;
-		nodes += box(text(nodesNames[n]), id(nodesNames[n]), fillColor("red"), layer(nodesNames[n]),
-						onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
-									println(nodesNames[n]);
-									//edit(f, [decor] + decors);
-									return false;}));
+		nodes += box(text(nodesNames[n]), id(nodesNames[n]), fillColor("red"));					
 	}
-	for(<str n1, str n2, int _, _, _, loc f, LineDecoration decor, list[LineDecoration] decors> <- d) {
+	for(<str n1, str n2, int cx, bool low, bool hig, loc f, LineDecoration decor, list[LineDecoration] decors> <- d) {
 		if(n1 != n2) {
-			/*
-			nodes += box(text("c"), id(nodesNames[n1]+nodesNames[n2]), layer(nodesNames[n1]+nodesNames[n2]), fillColor("red"),
-							onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
-										println("bla");
-										edit(f, [decor] + decors);
-										return true;}));
-			edges += edge(nodesNames[n1], nodesNames[n1]+nodesNames[n2]);
-			edges += edge(nodesNames[n1]+nodesNames[n2], nodesNames[n2]);
-			*/
-			edges += edge(nodesNames[n1], nodesNames[n2]);
+			edges += edge(nodesNames[n1], nodesNames[n2],lineWidth(1+cx*2),
+			(low&&hig)?lineColor("Red"):
+			low?lineColor("Blue"):
+			hig?lineColor("Purple"):
+			lineColor("Green"),
+			toArrow(ellipse(size(10+cx)))
+			);
 		}
 	};
 	println(nodes);
 	println(edges);
-	for(n<-nodes) render(n);
-	//render(graph(nodes, edges, hint("layered"), gap(50), std(size(30))));
+	//for(n<-nodes) render(n);
+	render(graph(nodes, edges, hint("layered"), gap(30), std(size(50))));
 	//iprintln(d);
 }
 
