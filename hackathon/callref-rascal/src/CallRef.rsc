@@ -52,7 +52,6 @@ public tuple[list[map[str, str]], list[therel]] main()
 		nodesNames = ();
 		for(n <- { *{n1,n2} | <str n1, str n2, int _, _, _, loc f, LineDecoration decor, list[LineDecoration] decors> <- d }) {
 			nodesNames[n] = "<substring(n,findLast(n," ")+1,findFirst(n,"("))><i>";
-			println("m<i> is <n>");
 			i += 1;
 			nodes += box(text(nodesNames[n]), id(nodesNames[n]), fillColor("red"));					
 		}
@@ -67,16 +66,13 @@ public tuple[list[map[str, str]], list[therel]] main()
 				);
 			}
 		};
-		println(nodes);
-		println(edges);
-		//for(n<-nodes) render(n);
-		//render(graph(nodes, edges, hint("layered"), gap(30), std(size(50))));
+		//println(nodes);
+		//println(edges);
 		gs += graph(nodes, edges, hint("layered"), gap(30), std(size(50)));
 		lNodesNames += invertUnique(nodesNames);
 	}
 	render(vcat(gs));
 	return <lNodesNames, ds>;
-	//iprintln(d);
 }
 
 alias therel = rel[str, str, int, bool, bool, loc, LineDecoration, list[LineDecoration]];
@@ -105,8 +101,8 @@ public list[str] processProjectForNames(loc project) {
 public rel[str, str, int, bool, bool, loc, LineDecoration, list[LineDecoration]] processProjectForCallRefs(loc project) {
 	rel[str, str, int, bool, bool, loc, LineDecoration, list[LineDecoration]] nameRel = {};
 	for(/file(loc f) <- getProject(project), f.extension == "java" && isOnBuildPath(f))
-		visit(createAstsFromProject(f)) {
-			case m:methodDeclaration(list[Modifier] modifiers, list[AstNode] genericTypes, Option[AstNode] returnType, str name, list[AstNode] parameters, list[AstNode] possibleExceptions, some(AstNode implementation)): 
+		visit(createAstFromFile(f)) {
+			case m:methodDeclaration(list[Modifier] modifiers, list[AstNode] genericTypes, Option[AstNode] returnType, str name, list[AstNode] parameters, list[AstNode] possibleExceptions, some(AstNode implementation)):
 				nameRel += { <toStr(m@bindings["methodBinding"]), n, c, lower, upper, f, marker(m@location), decors> |  <str n, int c, bool lower, bool upper, list[LineDecoration] decors> <- processNode(implementation, {}, false, false) };
 		}
 	return nameRel;
@@ -160,14 +156,10 @@ public rel[str, int, bool, bool, list[LineDecoration]] processNode(AstNode body,
 public void (int, str, str) view() =
 void (int s, str m1, str m2) {
 	tuple[list[map[str, str]], list[therel]] i = main();
-	println("Fetching <m1> from <i[0][s]>...");
+	//println("Fetching <m1> from <i[0][s]>...");
 	m1 = i[0][s][m1];
 	m2 = i[0][s][m2];
-	if(<a,b,c,d,e,f,g,h> <- i[1][s], a == m1, b == m2) {
-		println(f);
-		println(g);
-		println(h);
+	if(<a,b,c,d,e,f,g,h> <- i[1][s], a == m1, b == m2)
 		edit(f,h);
-	};
 	return;
 };
