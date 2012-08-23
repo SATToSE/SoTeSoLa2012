@@ -5,9 +5,8 @@ import lang::java::jdt::Java;
 
 import List;
 
-public str toStr(entity(list[Id] ids)) = "<if(!isEmpty(ids)){><for(int i <- [0..size(ids)-1]){><if(i != size(ids)-1){><if(toStr(ids[i]) != "") {><if(toStr(ids[i]) == ""){><}else{><toStr(ids[i])>.<}><}><}else{><toStr(ids[i])><}><}><}else{>_<}>";
-public str toStr(package(str name)) = "";
-public str toStr(anonymousClass(int nr)) = "anonymous<nr>";
+public str toStr(entity(list[Id] ids)) = "<if(!isEmpty(ids)){><for(int i <- [0..size(ids)-1]){><if(i != size(ids)-1){><if(toStr(ids[i]) != "") {><toStr(ids[i])>.<}><}else{><toStr(ids[i])><}><}><}else{>_<}>";
+public str toStr(package(str name)) = name;
 public str toStr(class(str name)) = name;
 public str toStr(class(str name, list[Entity] params)) = "<name>\<<for(int i <- [0..size(params)-1]){><if(i != size(params)-1){><toStr(params[i])>,<}else{><toStr(params[i])><}><}>\>";
 public str toStr(interface(str name)) = name;
