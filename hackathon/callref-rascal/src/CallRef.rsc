@@ -32,8 +32,8 @@ public LineDecoration marker(loc f) {
 public list[loc] projects =
 	[
 		|project://javaComposition|,
-		|project://javaInheritance|,
-		|project://javaMultithreading/src|
+		|project://javaInheritance|//,
+		//|project://javaMultithreading/src|
 	];
 
 public tuple[list[map[str, str]], list[therel]] main()
@@ -153,9 +153,11 @@ public rel[str, int, bool, bool, list[LineDecoration]] processNode(AstNode body,
 	return names;
 }
 
-public void (int, str, str) view() =
+public tuple[list[map[str, str]], list[therel]] i = main();
+
+public void (int, str, str) view =
 void (int s, str m1, str m2) {
-	tuple[list[map[str, str]], list[therel]] i = main();
+	//tuple[list[map[str, str]], list[therel]] i = main();
 	//println("Fetching <m1> from <i[0][s]>...");
 	m1 = i[0][s][m1];
 	m2 = i[0][s][m2];
