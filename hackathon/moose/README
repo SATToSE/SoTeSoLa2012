@@ -1,0 +1,11 @@
+usage
+----
+download and double click on the image file
+
+description
+------------
+Hierarchal Complexity View (view_hierarchalComplexityView.png): boxes are classes; links are superclass relationships; width and height are proportional to NOM and NOA; color is darker if more LOC
+
+duplication view (view_duplications.png): containers represent projects; red means contains duplicated code; size is proportional to LOC
+
+Incoming Invocations (view_incomingInvocations.png): containers represent projects; size is proportional to LOC; color is darker if more incoming invocations 
