@@ -1,0 +1,56 @@
+MODULE Vadim;
+ 
+VAR
+  Counter := 0;
+ 
+CACHE PROCEDURE Id(Node);
+  BEGIN
+  Counter := Counter + 1;
+  RESULT := Counter;
+  END Id;
+ 
+PROCEDURE INIT;
+  BEGIN
+  FILE1.Redirect('vadim.rse');
+ FILE1.WriteLn ('(');
+  WriteModule;
+  FOR IN ROOT.SubNodes | X IS ParagraphStatementBlock DO
+    WriteParagraphEntry (X);
+    END;
+  FILE1.WriteLn (')');
+  FILE1.Redirect;
+  END;
+ 
+PROCEDURE WriteModule;
+  BEGIN
+  FILE1.WriteLn ('(   FAMIX.Class (id: ' , Id(ROOT), ')');
+  FILE1.WriteLn ("     (name '", ROOT.OriginalModuleName , "')");
+  FILE1.WriteLn (')');
+  END;
+ 
+PROCEDURE WriteParagraphEntry (p);
+  BEGIN
+  FILE1.WriteLn ('(   FAMIX.Method (id: ' , Id(p), ')');
+  FILE1.WriteLn ("     (name '", p.Id.Image , "')");
+  FILE1.WriteLn ("     (numberOfStatements ", (COUNT IN p.SubNodes :- X IS Statement) , ')');
+  FILE1.WriteLn ("     (numberOfLines ", p.EndLineNr - p.LineNr + 1, ')');
+  FILE1.WriteLn ("     (parentType (ref: ", Id(ROOT) , "))");
+  FILE1.WriteLn (')');
+  FOR IN p.SubNodes | X IS GotoStatement DO
+    WriteGotoStatement (p, X);
+    END;
+  END;
+ 
+PROCEDURE WriteGotoStatement (p, g);
+  VAR
+    tt;
+  BEGIN
+  tt := g.Targets[1];
+  ASSERT tt CAN Ref;
+  ASSERT tt.Ref <> VOID;
+  FILE1.WriteLn ('(   FAMIX.Invocation (id: ' , Id(g), ')');
+  FILE1.WriteLn ("     (receiver (id: ", Id(tt.Ref) , "))");
+  FILE1.WriteLn ("     (sender (id: ", Id(p) , "))");
+  FILE1.WriteLn (')');
+  END;
+
