@@ -1,0 +1,333 @@
+-- ******************************************************************************
+-- Copyright (c) 2005 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  
+-- ******************************************************************************
+
+-- @name		HTML
+-- @version		1.0
+-- @domains		HTML
+-- @authors		Freddy Allilaire (freddy.allilaire@univ-nantes.fr)
+-- @date		2005/04/15
+-- @description	This basic metamodel describes HyperText Markup Language. HTML is the lingua franca for publishing hypertext on the World Wide Web. It is a non-proprietary format based upon SGML, and can be created and processed by a wide range of tools, from simple plain text editors - you type it in from scratch- to sophisticated WYSIWYG authoring tools. HTML uses tags such as <h1> and </h1> to structure text into headings, paragraphs, lists, hypertext links etc. 
+-- @see			http://www.w3.org/MarkUp/
+
+package HTML {
+        class HTML {
+                reference head container : HEAD oppositeOf html;
+                reference body container : BODY oppositeOf html;
+        }
+
+        class HTMLElement {
+                attribute value : String;
+                reference children[*] container : HTMLElement oppositeOf parent;
+                reference parent : HTMLElement oppositeOf children;
+        }
+
+
+	-- @begin HEAD ELEMENT
+
+        class HEAD extends HTMLElement {
+                reference headElements[*] container : HEADElement oppositeOf head;
+                reference html : HTML oppositeOf head;
+        }
+
+        abstract class HEADElement extends HTMLElement {
+                reference head : HEAD oppositeOf headElements;
+        }
+
+        class LINK extends HEADElement {
+                attribute rel : String;
+                attribute title : String;
+                attribute ahref : String;
+                attribute type : String;
+        }
+        
+        class TITLE extends HEADElement {
+        }
+
+	-- @end HEAD ELEMENT
+
+	-- @begin BODY ELEMENT
+
+        class BODY extends HTMLElement {
+        		attribute background : String;
+        		attribute bgcolor : String;
+        		attribute text : String;
+        		attribute link : String;
+        		attribute alink : String;
+        		attribute vlink : String;
+                reference bodyElements[*] container : BODYElement oppositeOf body;
+                reference html : HTML oppositeOf body;
+        }
+        
+        abstract class BODYElement extends HTMLElement {
+                reference body : BODY oppositeOf bodyElements;
+        }
+
+
+    
+        class H1 extends BODYElement {}
+
+        class H2 extends BODYElement {}
+
+        class H3 extends BODYElement {}
+
+        class H4 extends BODYElement {}
+
+        class EM extends BODYElement {}
+
+        class STRONG extends BODYElement {}
+
+        class B extends BODYElement {}
+
+        class I extends BODYElement {}
+
+        class TT extends BODYElement {}        
+
+        class PRE extends BODYElement {}
+
+        class BIG extends BODYElement {}
+
+        class SMALL extends BODYElement {}
+
+        class SUB extends BODYElement {}
+
+        class SUP extends BODYElement {}
+
+        class STRIKE extends BODYElement {}
+
+        class FONT extends BODYElement {
+                attribute color : String;
+                attribute face : String;
+                attribute size : String;
+        }
+
+
+
+		-- @begin IMG
+
+        class IMG extends BODYElement {
+                attribute src : String;
+                attribute width : String;
+                attribute height : String;
+                attribute alt : String;
+                attribute align : String;
+                attribute vspace : String;
+                attribute hspace : String;
+                attribute ismap : String;
+                attribute usemap : String;
+                attribute border : String;
+        }
+
+        class BR extends BODYElement {
+        		attribute clear : String;
+        }
+        
+        class MAP extends BODYElement {}
+        
+        class AREA extends BODYElement {
+                attribute shape : String;
+                attribute coords : String;
+		        attribute ahref : String;
+        }
+
+		-- @end IMG
+
+        class STYLE extends BODYElement {}
+
+        class EMBED extends BODYElement {
+        	attribute src : String;
+        	attribute width : String;
+        	attribute height : String;
+        	attribute align : String;
+        	attribute vspace : String;
+        	attribute hspace : String;
+        	attribute border : String;
+        }
+
+        class NOEMBED extends BODYElement {}
+
+        class SPAN extends BODYElement {
+ 	       attribute style : String;
+        }
+
+        class A extends BODYElement {
+                attribute ahref : String;
+                attribute name : String;
+                attribute id : String;
+        }
+        
+        class DIV extends BODYElement {
+        		attribute align : String;
+        }
+                
+        class P extends BODYElement {
+        }
+        
+
+		-- @begin TABLE
+
+        
+        abstract class TABLEElement extends BODYElement {
+                attribute bgcolor : String;
+                attribute background : String;
+        }
+        
+        class TABLE extends TABLEElement {
+				attribute border : String;
+                attribute width : String;
+                attribute cellspacing : String;
+                attribute cellpadding : String;
+                reference trs[*] container : TR oppositeOf table;
+        }
+        
+        class TR extends TABLEElement {
+                attribute valign : String;
+                attribute align : String;
+                reference table : TABLE oppositeOf trs;
+                reference tds[*] container : TD oppositeOf tr;
+        }
+        
+        class TD extends TABLEElement {
+                attribute colspan : String;
+                attribute rowspan : String;
+                attribute valign : String;
+                attribute align : String;
+                attribute width : String;
+                reference tr : TR oppositeOf tds;
+        }
+        
+        class TH extends TD {}
+        
+		-- @begin TABLE
+		
+	-- @end BODY ELEMENT
+
+
+	-- @begin FORM
+
+		class FORM {
+			attribute action : String;
+			attribute method : String;
+		}
+
+		class INPUT {
+			attribute align : String;
+			attribute maxlength : String;
+			attribute size : String;
+			attribute checked : String;
+			attribute src : String;
+			attribute inputValue : String;
+			attribute name : String;
+			attribute type : String;
+		}
+		
+		class TEXTAREA {
+			attribute name : String;
+			attribute rows : String;
+			attribute cols : String;
+		}
+
+		class SELECT {
+			attribute multiple : String;
+			attribute size : String;
+			attribute name : String;
+		}
+
+		class OPTION {
+			attribute selected : String;
+			attribute optionValue : String;
+		}
+        
+	-- @end FORM
+	
+
+	-- @begin LIST
+
+		abstract class ListElement {
+			attribute type : String;
+		}
+
+        class OL extends ListElement {
+        	attribute start : String;
+        }
+
+        class UL extends ListElement {}
+
+        class LI extends ListElement  {
+        	attribute liValue : String;
+        }
+
+        class DL {}
+
+        class DT {}
+
+        class DD {}
+        
+   	-- @begin LIST
+        
+
+	-- @begin APPLET
+
+        class APPLET {
+        	attribute applet : String;
+        	attribute "class" : String;
+        	attribute src : String;
+        	attribute align : String;
+        	attribute width : String;
+        	attribute height : String;
+        }
+
+		class PARAM {
+			attribute name : String;
+			attribute paramValue : String;
+		}
+
+		class OBJECT {
+			attribute classid : String;
+			attribute id : String;
+			attribute data : String;
+			attribute type : String;
+			attribute standby : String;
+		}
+	
+	-- @end APPLET
+		
+
+	-- @begin FRAME
+
+		class FRAMESET {
+			attribute rows : String;
+			attribute cols : String;
+			attribute framespacing : String;
+			attribute frameborder : String;
+			attribute border : String;
+		}
+		class FRAME {
+			attribute src : String;
+			attribute name : String;
+			attribute marginwidth : String;
+			attribute marginheight : String;
+			attribute scrolling : String;
+			attribute noresize : String;
+		}
+		class NOFRAME {}
+
+		class IFRAME extends FRAME {}
+		
+	-- @end FRAME
+		
+}
+
+package PrimitiveTypes {
+        datatype Boolean;
+        datatype String;
+        datatype Integer;
+}

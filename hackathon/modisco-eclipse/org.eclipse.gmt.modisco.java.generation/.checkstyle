@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <fileset-config file-format-version="1.2.0" simple-config="true">
+   <local-check-config name="MoDisco" location="../org.eclipse.gmt.modisco.dev.core/checkstyle/MoDisco.checkstyle" type="project" description=""/>
+   <fileset name="all" enabled="true" check-config-name="MoDisco" local="true">
+     <file-match-pattern match-pattern="." include-pattern="true"/>
+     <file-match-pattern match-pattern="Messages.java" include-pattern="false"/>
+     <file-match-pattern match-pattern="Generate_.*java" include-pattern="false"/>
+   </fileset>
+ </fileset-config>

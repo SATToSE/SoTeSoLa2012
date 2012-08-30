@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.modisco.infra.discovery.launchConfigurationType">
+<stringAttribute key="discoverer_launch_model" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;ASCII&quot;?&gt;&#13;&#10;&lt;launch:LaunchConfiguration xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:launch=&quot;http://www.eclipse.org/MoDisco/Discovery/0.1.incubation/discovery/launch&quot; source=&quot;org.eclipse.core.resources.IResource:/SoTeSoLa-Hackathon/src/Wiki101FullJson.json&quot; openModelAfterDiscovery=&quot;true&quot;&gt;&#13;&#10;  &lt;discoverer href=&quot;platform:/meta/org.eclipse.modisco.infra.discovery.core/discoverersCatalog.xmi#org.eclipse.modisco.json.discoverer&quot;/&gt;&#13;&#10;&lt;/launch:LaunchConfiguration&gt;&#13;&#10;"/>
+</launchConfiguration>

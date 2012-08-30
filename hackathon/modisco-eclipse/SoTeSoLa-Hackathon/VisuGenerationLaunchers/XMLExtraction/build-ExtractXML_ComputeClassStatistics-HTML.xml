@@ -1,0 +1,42 @@
+<!--
+/********************************************************************************
+ * Copyright (c) 2012 INRIA. 
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors: 
+ *     INRIA - Initial implementation
+ *     
+ ******************************************************************************/
+-->
+
+<!-- author: Hugo Bruneliere -->
+
+<project name="ExtractXML" default="extract">
+
+	<!-- Workspace relative paths -->
+	<property name="XMLmodelPath" value="SoTeSoLa-Hackathon/Models/Temp/javaStatic-ClassStatistics_HTML-XML.xmi"/>
+	<property name="XMLdocumentPath" value="SoTeSoLa-Hackathon/Models/javaStatic-ClassStatistics.html"/>
+
+	<target name="extract" depends="loadMetamodels">
+
+		<!-- Load the XML model -->
+		<atl.loadModel modelHandler="EMF" name="XMLmodel" metamodel="XML" path="${XMLmodelPath}"/>
+
+		<!-- Extract the XML model as an XML document -->
+		<atl.saveModel model="XMLmodel" path="${XMLdocumentPath}">
+			<extractor name="XML"/>
+		</atl.saveModel>
+
+	</target>
+
+	<target name="loadMetamodels">
+
+		<!-- Load XML metamodel -->
+		<atl.loadModel modelHandler="EMF" name="XML" metamodel="%EMF" path="org.eclipse.gmt.modisco.tool.metricsvisualizationbuilder/Metamodels/XML.ecore" />
+
+	</target>
+
+</project>

@@ -1,0 +1,46 @@
+-- ******************************************************************************
+-- Copyright (c) 2005 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  
+-- ******************************************************************************
+
+-- @name	XML 
+-- @version	1.1
+-- @domains	XML
+-- @authors	Peter Rosendal (peter.rosenthal@univ-nantes.fr)
+-- @date	2005/06/13	
+-- @description	This metamodel defines a subset of Extensible Markup Language (XML) and particulary XML document. It describes an XML document composed of one root node. Node is an abstract class having two direct children, namely ElementNode and AttributeNode. ElementNode represents the tags, for example a tag named xml: <xml></xml>. ElementNodes can be composed of many Nodes. AttributeNode represents attributes, which can be found in a tag, for example the attr attribute: <xml attr="value of attr"/>. ElementNode has two sub classes, namely RootNode and TextNode. RootNode is the root element. The TextNode is a particular node, which does not look like a tag; it is only a string of characters.
+
+package XML {
+	abstract class Node {
+		attribute startLine[0-1] : Integer;
+		attribute startColumn[0-1] : Integer;
+		attribute endLine[0-1] : Integer;
+		attribute endColumn[0-1] : Integer;
+		attribute name : String;
+		attribute value : String;
+		reference parent[0-1] : Element oppositeOf children;	
+	}
+
+	class Attribute extends Node {}
+
+	class Text extends Node {}
+
+	class Element extends Node {
+		reference children[*] ordered container : Node oppositeOf parent;	
+	}
+
+	class Root extends Element {}
+}
+
+package PrimitiveTypes {
+	datatype Boolean;
+	datatype Integer;
+	datatype String;
+}

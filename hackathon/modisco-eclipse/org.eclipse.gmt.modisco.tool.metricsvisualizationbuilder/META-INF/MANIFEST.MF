@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.gmt.modisco.tool.metricsvisualizationbuilder
+Bundle-Version: 0.10.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-ClassPath: .
+Bundle-Localization: plugin

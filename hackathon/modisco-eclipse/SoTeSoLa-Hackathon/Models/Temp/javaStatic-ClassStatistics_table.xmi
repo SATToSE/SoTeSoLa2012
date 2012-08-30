@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="Table">
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Behavior"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="2"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="2"/>
+    </rows>
+  </Table>
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Company"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="2"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="1"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="0"/>
+    </rows>
+  </Table>
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Cut"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="3"/>
+    </rows>
+  </Table>
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Department"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="5"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="5"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="6"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="4"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="2"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="0"/>
+    </rows>
+  </Table>
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Employee"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="4"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="4"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="6"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="0"/>
+    </rows>
+  </Table>
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Serialization"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="5"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="5"/>
+    </rows>
+  </Table>
+  <Table>
+    <rows>
+      <cells content=""/>
+      <cells content="Class Statistics for Total"/>
+    </rows>
+    <rows>
+      <cells content="attributes in total"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="public"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="private"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="methods in total"/>
+      <cells content="3"/>
+    </rows>
+    <rows>
+      <cells content="getters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="setters"/>
+      <cells content="0"/>
+    </rows>
+    <rows>
+      <cells content="regular"/>
+      <cells content="3"/>
+    </rows>
+  </Table>
+</xmi:XMI>

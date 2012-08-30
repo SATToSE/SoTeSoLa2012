@@ -1,0 +1,164 @@
+-- ******************************************************************************
+-- Copyright (c) 2005 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  
+-- ******************************************************************************
+
+-- @name	SpreadsheetMLSimplified
+-- @version	1.2
+-- @domains	Microsoft Office Excel, XML
+-- @authors	Hugo Bruneliere (hbruneliere@free.fr)
+-- @date	2005/07/01
+-- @description	This metamodel describes a simplified subset of SpreadsheetML, an XML dialect developed by Microsoft to represent the information in an Excel spreadsheet. The root element for an XML spreadsheet is the Workbook element. A Workbook element can contain multiple Worksheet elements. A Worksheet element can contain a Table element. It holds the row elements that define a spreadsheet. A row holds the cell elements that make it up. A Cell element holds the data. In addition, Column elements (children of the Table element) can be used to define the attributes of columns in the spreadsheet.
+-- @see		excelss.xsd; Microsoft Office 2003 XML Reference Schemas; http://www.microsoft.com/downloads/details.aspx?familyid=FE118952-3547-420A-A412-00A2662442D9&displaylang=en
+
+package SpreadsheetMLSimplified {
+
+-- @begin MS Office - Special Types definition
+
+	-- @comment The format for date/time fields is yyyy-mm-ddThh:mm:ssZ. (This format can be described as follows: a four-digit year, hyphen, two-digit month, hyphen, two-digit day, uppercase letter T, two-digit hour, colon, two-digit minute value, colon, two-digit seconds value, uppercase letter Z.).
+	class DateTimeType {
+		attribute year : Integer;
+		attribute month : Integer;
+		attribute day : Integer;
+		attribute hour : Integer;
+		attribute minute : Integer;
+		attribute second : Integer;	
+	}
+	
+	-- @comment Office manages five types of value : String, Number, DateTime, Boolean and Error.
+	abstract class ValueType {
+		reference vt_data : Data oppositeOf value;
+	}
+	
+	class StringValue extends ValueType {
+		attribute value : String;
+	}
+	
+	class NumberValue extends ValueType {
+		attribute value : Double;
+	}
+	
+	class DateTimeTypeValue extends ValueType {
+		reference value container : DateTimeType;
+	}
+	
+	class BooleanValue extends ValueType {
+		attribute value : Boolean;
+	}
+	
+	class ErrorValue extends ValueType {}
+	
+-- @end MS Office - Special Types definition
+
+-- @begin MS Office - Excel workbook basic definition
+	
+	-- @comment Defines a workbook that will contain one or more Worksheet elements.
+	class Workbook {			
+		-- @comment At least one instance of the Worksheet element is required for a valid spreadsheet but the XML schema permit having no instance.
+		reference wb_worksheets[*] ordered container : Worksheet oppositeOf ws_workbook;
+	}
+
+	-- @comment Defines a worksheet within the current workbook.
+	class Worksheet {
+		reference ws_workbook : Workbook oppositeOf wb_worksheets;
+		
+		-- @comment Only one instance of a Table element is valid for a single worksheet. 
+		reference ws_table[0-1] container : Table oppositeOf t_worksheet;
+		
+		-- @comment Specifies the name of a worksheet. This value must be unique within the list of worksheet names of a given workbook.
+		attribute name : String;
+	}
+	
+	-- @comment Defines the table to contain the cells that constitute a worksheet.
+	class Table {
+		reference t_worksheet :  Worksheet oppositeOf ws_table;
+		
+		-- @comment A table contains columns and rows.
+		reference t_cols[*] ordered container : Column oppositeOf c_table;
+		reference t_rows[*] ordered container : Row oppositeOf r_table;
+	}
+
+	-- @comment Defines a table element, that is to say a column, a row or a cell.
+	abstract class TableElement {
+		-- @comment Specifies the position of the element in the table. For a cell, it specifies the column index.  
+		attribute index[0-1] : Integer;  
+	}
+	
+	-- @comment Defines a row or a column.
+	abstract class ColOrRowElement extends TableElement {
+		-- @comment Specifies whether a row or a column is hidden.
+		attribute hidden[0-1] : Boolean;
+		-- @comment Specifies the number of adjacent columns/rows with the same formatting as the defined column/row. This integer mustn't be negative.
+		attribute span[0-1] : Integer;
+	}
+	
+	-- @comment Defines the formatting and properties for a column
+	class Column extends ColOrRowElement {
+		reference c_table : Table oppositeOf t_cols;
+		
+		-- @comment Specifies whether a column is automatically resized to fit numeric and date values. Columns are not resized to fit text data.
+		attribute autoFitWidth[0-1] : Boolean;
+		-- @comment Specifies the width of a column in points. This value must be greater than or equal to zero. 
+		attribute width[0-1] : Double;
+	}
+	
+	-- @comment Defines the formatting and properties for a row
+	class Row extends ColOrRowElement {
+		reference r_table : Table oppositeOf t_rows;
+		
+		-- @comment A row contains zero or more cells.
+		reference r_cells[*] ordered container : Cell oppositeOf c_row;
+		
+		-- @comment Specifies whether the height of a row is automatically resized to fit the contents of cells.
+		attribute autoFitHeight[0-1] : Boolean;
+		-- @comment Specifies the height of a row in points. This value must be greater than or equal to zero.
+		attribute height[0-1] : Double;
+	}
+	
+	-- @comment Defines the properties of a cell in a worksheet.
+	class Cell extends TableElement {
+		-- @comment A cell is contained in a row.
+		reference c_row : Row oppositeOf r_cells;
+		
+		-- @comment Specifies the range of cells to which an array formula applies.
+		attribute arrayRange[0-1] : String;
+		-- @comment Specifies a formula for a cell.
+		attribute formula[0-1] : String;
+		-- @comment Specifies a URL to which to which a cell is linked.
+		attribute hRef[0-1] : String;
+		-- @comment Specifies the number of adjacent cells to merge with the current cell. The cells to merge will be to the right of the current cell unless the worksheet is set to display left-to-right.
+		attribute mergeAcross[0-1] : Double;
+		-- @comment Specifies the number of adjacent cells below the current cell that are to be merged with the current cell.
+		attribute mergeDown[0-1] : Double;	
+		-- @comment A cell can contain a data.
+		reference c_data[0-1] container : Data oppositeOf d_cell;
+	}
+	
+	-- @comment Specifies the value of a cell. The value should be specified in the format and type appropriate for (String, Number, DateTime, Boolean or Error).
+	class Data {
+		reference d_cell : Cell oppositeOf c_data;
+		
+		-- @comment Defines the value of the cell in the correct type
+		reference value container : ValueType oppositeOf vt_data;
+	}
+	
+-- @end MS Office - Excel workbook basic definition
+
+}
+
+
+package PrimitiveTypes {
+	
+	datatype Integer;
+	datatype String;
+	datatype Boolean;
+	datatype Double;
+
+}

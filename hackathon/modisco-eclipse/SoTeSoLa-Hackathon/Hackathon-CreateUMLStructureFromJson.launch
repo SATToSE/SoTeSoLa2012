@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.modisco.workflow.launchType">
+<listAttribute key="serializedWorkflow">
+<listEntry value="1-Hackathon-JsonFactDiscovery"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.modisco.infra.discovery.launchConfigurationType"/>
+<listEntry value="5-Hackathon-JsonFactToUMLStructure"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.m2m.atl.adt.launching.atlTransformation"/>
+</listAttribute>
+</launchConfiguration>

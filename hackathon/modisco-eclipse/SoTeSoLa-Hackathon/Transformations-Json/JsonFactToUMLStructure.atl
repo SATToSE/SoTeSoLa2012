@@ -1,0 +1,82 @@
+-- @path JSON=/SoTeSoLa-Hackathon/Metamodels/json.ecore
+-- @nsURI UML=http://www.eclipse.org/uml2/3.0.0/UML
+-- ******************************************************************************
+-- Copyright (c) 2012 CRP Henri Tudor
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	Jean-Sébastien Sottet - Initial implementation
+--  
+-- ******************************************************************************
+
+module JsonFactToUMLStructure;
+create OUT : UML from IN : JSON;
+
+helper def: JsonModelRoot : JSON!Object = JSON!Object.allInstancesFrom('IN')->select(e | e.refImmediateComposite().oclIsUndefined())->first();
+
+helper context JSON!Pair def: isAnInstance(): Boolean = 
+	if(self.refImmediateComposite().oclIsUndefined()) 
+		then false 
+	else 
+		if(self.refImmediateComposite().refImmediateComposite().oclIsUndefined() ) 
+			then false
+		else let p:JSON!Pair=self.refImmediateComposite().refImmediateComposite() in
+				p.refImmediateComposite() = thisModule.JsonModelRoot	
+		endif
+	endif;
+
+rule RootObjectToUMLModel {
+	from
+		s : JSON!Object(s.refImmediateComposite().oclIsUndefined())
+	to 
+		o : UML!Model (
+			name <- 'UML Structure of 101 Json',
+			packagedElement <- p,
+			packagedElement <-p2
+		),
+		
+		p : UML!Package(
+			name <-	'Classes',
+			packagedElement <- s.members
+		),
+		
+		p2 : UML!Package(
+			name <-'Instances',
+			packagedElement <- s.members->collect(e | e.pairValue.members)->flatten()
+		)
+}
+
+rule StructuralPairToClass {
+	from
+		s : JSON!Pair(s.refImmediateComposite() = thisModule.JsonModelRoot)
+	to 
+		o : UML!Class (
+			name <- s.key,
+			ownedAttribute <- s.pairValue.members->first().pairValue.members->collect (e | thisModule.PairToAttribute(e))
+		)
+}
+
+rule StructuralPairToInstances {
+	from
+		s : JSON!Pair(s.isAnInstance())
+	to 
+		o : UML!InstanceSpecification (
+			name <- s.key ,		
+			classifier <- s.refImmediateComposite().refImmediateComposite()
+			
+		)
+}
+
+
+lazy rule PairToAttribute {
+	from
+		s : JSON!Pair
+	to 
+		o : UML!Property (
+			name <- s.key
+			--type <- convertFromType(s.pairValue)
+		)
+}

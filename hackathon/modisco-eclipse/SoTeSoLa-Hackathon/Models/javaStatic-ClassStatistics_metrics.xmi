@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="Metrics">
+  <Metric name="Class Statistics for Total">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="3"/>
+  </Metric>
+  <Metric name="Class Statistics for Cut">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="3"/>
+  </Metric>
+  <Metric name="Class Statistics for Employee">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="4"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="4"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="6"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="0"/>
+  </Metric>
+  <Metric name="Class Statistics for Company">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="3"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="2"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="1"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="0"/>
+  </Metric>
+  <Metric name="Class Statistics for Department">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="5"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="5"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="6"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="4"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="2"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="0"/>
+  </Metric>
+  <Metric name="Class Statistics for Serialization">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="5"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="5"/>
+  </Metric>
+  <Metric name="Class Statistics for Behavior">
+    <values xsi:type="IntegerMetricValue" tag="attributes in total" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="public" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="private" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="methods in total" value="2"/>
+    <values xsi:type="IntegerMetricValue" tag="getters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="setters" value="0"/>
+    <values xsi:type="IntegerMetricValue" tag="regular" value="2"/>
+  </Metric>
+</xmi:XMI>
