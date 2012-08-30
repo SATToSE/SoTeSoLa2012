@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.modisco.workflow.launchType">
+<listAttribute key="serializedWorkflow">
+<listEntry value="1-Hackathon-JavaProjectDiscovery"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.modisco.infra.discovery.launchConfigurationType"/>
+<listEntry value="2-Hackathon-ComputeClassStatistics"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.m2m.atl.adt.launching.atlTransformation"/>
+<listEntry value="3-Hackathon-ComputeClassStatistics-Table"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.m2m.atl.adt.launching.atlTransformation"/>
+<listEntry value="4-1-Hackathon-ComputeClassicStatistics-HTML"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.m2m.atl.adt.launching.atlTransformation"/>
+<listEntry value="4-2-Hackathon-ComputeClassicStatistics-HTML-XML"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.m2m.atl.adt.launching.atlTransformation"/>
+<listEntry value="4-3-Hackathon-ComputeClassStatistics-ExtractXML-HTML"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.ant.AntLaunchConfigurationType"/>
+</listAttribute>
+</launchConfiguration>

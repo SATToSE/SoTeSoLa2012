@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<HTML xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="HTML">
+  <head>
+    <headElements xsi:type="TITLE" value="Generated Table(s)"/>
+  </head>
+  <body>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Behavior"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="2"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="2"/>
+      </trs>
+    </bodyElements>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Company"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="2"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="1"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="0"/>
+      </trs>
+    </bodyElements>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Cut"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="3"/>
+      </trs>
+    </bodyElements>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Department"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="5"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="5"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="6"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="4"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="2"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="0"/>
+      </trs>
+    </bodyElements>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Employee"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="4"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="4"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="6"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="0"/>
+      </trs>
+    </bodyElements>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Serialization"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="5"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="5"/>
+      </trs>
+    </bodyElements>
+    <bodyElements xsi:type="TABLE" border="1">
+      <trs>
+        <tds xsi:type="TH" value=""/>
+        <tds xsi:type="TH" value="Class Statistics for Total"/>
+      </trs>
+      <trs>
+        <tds value="attributes in total"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="public"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="private"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="methods in total"/>
+        <tds value="3"/>
+      </trs>
+      <trs>
+        <tds value="getters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="setters"/>
+        <tds value="0"/>
+      </trs>
+      <trs>
+        <tds value="regular"/>
+        <tds value="3"/>
+      </trs>
+    </bodyElements>
+  </body>
+</HTML>

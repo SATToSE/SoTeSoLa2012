@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<am3Xml:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am3Xml="http://www.eclipse.org/am3/2007/XML" name="HTML">
+  <children xsi:type="am3Xml:Element" name="HEAD">
+    <children xsi:type="am3Xml:Element" name="TITLE">
+      <children xsi:type="am3Xml:Text" value="Generated Table(s)"/>
+    </children>
+  </children>
+  <children xsi:type="am3Xml:Element" name="BODY">
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Behavior"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="2"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="2"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Company"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="2"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="1"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Cut"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Department"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="5"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="5"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="6"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="4"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="2"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Employee"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="4"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="4"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="6"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Serialization"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="5"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="5"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="am3Xml:Element" name="TABLE">
+      <children xsi:type="am3Xml:Attribute" name="border" value="1"/>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value=""/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TH">
+          <children xsi:type="am3Xml:Text" value="Class Statistics for Total"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="attributes in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="public"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="private"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="methods in total"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="getters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="setters"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="0"/>
+        </children>
+      </children>
+      <children xsi:type="am3Xml:Element" name="TR">
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="regular"/>
+        </children>
+        <children xsi:type="am3Xml:Element" name="TD">
+          <children xsi:type="am3Xml:Text" value="3"/>
+        </children>
+      </children>
+    </children>
+  </children>
+</am3Xml:Root>

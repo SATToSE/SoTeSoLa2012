@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.modisco.workflow.launchType">
+<listAttribute key="serializedWorkflow">
+<listEntry value="1-Hackathon-JavaProjectDiscovery"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.modisco.infra.discovery.launchConfigurationType"/>
+<listEntry value="2-Hackathon-CreateAbstractClass"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.m2m.atl.adt.launching.atlTransformation"/>
+<listEntry value="3-Hackathon-CreateAbstractClass-CodeRegeneration"/>
+<listEntry value="0"/>
+<listEntry value="org.eclipse.acceleo.ide.ui.launching.launchConfigurationType"/>
+</listAttribute>
+</launchConfiguration>

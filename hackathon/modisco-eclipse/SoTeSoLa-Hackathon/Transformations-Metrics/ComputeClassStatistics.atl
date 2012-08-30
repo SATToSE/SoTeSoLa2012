@@ -1,0 +1,92 @@
+-- @path Metrics=/org.eclipse.gmt.modisco.tool.metricsvisualizationbuilder/Metamodels/Metrics.ecore
+-- @nsURI Java=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+
+-- ******************************************************************************
+-- Copyright (c) 2012 INRIA & Ecole des Mines de Nantes. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	Hugo Bruneliere - Initial implementation
+--  
+-- ******************************************************************************
+
+module ComputeClassStatistics;
+create OUT : Metrics from IN : Java;
+
+rule CreateMetric {
+	from
+		ic : Java!ClassDeclaration (
+			ic.package.package.name = 'softlang'	
+		)
+	to
+		om : Metrics!Metric (
+			name <- 'Class Statistics for ' + ic.name,
+			values <- Sequence{
+							numberOfAttributes,numberOfPrivateAttributes,
+							numberOfPublicAttributes,numberOfProtectedAttributes,
+							numberOfMethods,numberOfGetters,numberOfSetters,
+							numberOfRegularMethods
+						}
+		),
+		numberOfAttributes : Metrics!IntegerMetricValue (
+			tag <- 'attributes in total',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!FieldDeclaration))
+						->size()
+		),
+		numberOfPrivateAttributes : Metrics!IntegerMetricValue (
+			tag <- 'private',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!FieldDeclaration))
+						->select(fd | fd.modifier.visibility = #private)
+						->size()
+		),
+		numberOfPublicAttributes : Metrics!IntegerMetricValue (
+			tag <- 'public',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!FieldDeclaration))
+						->select(fd | fd.modifier.visibility = #public)
+						->size()
+		),
+		numberOfProtectedAttributes : Metrics!IntegerMetricValue (
+			tag <- 'private',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!FieldDeclaration))
+						->select(fd | fd.modifier.visibility = #protected)
+						->size()
+		),
+		numberOfMethods : Metrics!IntegerMetricValue (
+			tag <- 'methods in total',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!MethodDeclaration))
+						->size()
+		),
+		numberOfGetters : Metrics!IntegerMetricValue (
+			tag <- 'getters',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!MethodDeclaration)) 
+						->select(md | md.name.startsWith('get'))
+						->size()
+		),
+		numberOfSetters : Metrics!IntegerMetricValue (
+			tag <- 'setters',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!MethodDeclaration)) 
+						->select(md | md.name.startsWith('set'))
+						->size()
+		),
+		numberOfRegularMethods : Metrics!IntegerMetricValue (
+			tag <- 'regular',
+			value <- ic.bodyDeclarations
+						->select(bd | bd.oclIsTypeOf(Java!MethodDeclaration)) 
+						->reject(md | md.name.startsWith('set')
+								or md.name.startsWith('get')
+							)
+						->size()
+		)
+}
+
+

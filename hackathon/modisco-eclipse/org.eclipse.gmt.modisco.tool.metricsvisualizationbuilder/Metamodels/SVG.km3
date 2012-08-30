@@ -1,0 +1,230 @@
+-- ******************************************************************************
+-- Copyright (c) 2005 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  
+-- ******************************************************************************
+
+-- @name		SVG
+-- @version		1.1
+-- @domains		graphics, XML
+-- @authors		Jean Palies
+-- @date		2005/04/07	
+-- @description	This metamodel defines a susbset of the W3C standard SVG (Scalable Vector Graphics), an XMLbased format for graphical rendering.
+-- @see			Scalable Vector Graphics 1.1, World Wide Web Consortium, http://www.w3.org/TR/SVG11/
+
+package SVG {
+
+-- @comment Element is the top of the hierarchy
+	abstract class Element {
+		reference owner[*] : SvgFile oppositeOf elements;
+		reference target[*] : Use oppositeOf use;
+		reference "attribute"[*] ordered : Attribute oppositeOf attOwner;
+		reference position[0-1] container : Coordinates;
+		reference size[0-1] container : Dimension;
+		reference root[0-1] : Svg oppositeOf children;
+		attribute fill[0-1] : String;
+		attribute viewBox[0-1] : String;
+		reference group[0-1] : GroupingElement oppositeOf groupContent;
+		attribute identifier[0-1] : String;
+		reference drawsMarker[0-1] : Marker oppositeOf drawing;
+	}
+
+
+-- @comment Structural Elements
+	abstract class StructuralElement extends Element {
+	}
+
+	class Image extends StructuralElement {
+		reference referee[*] : ReferencedFile oppositeOf referer;
+	}
+
+	class Svg extends StructuralElement {
+		reference owner_SVG[*] : SvgFile oppositeOf tag;
+		reference children[*] ordered container : Element oppositeOf root;
+		attribute namespace[0-1] : String;
+		attribute version[0-1] : String;
+		attribute baseProfile[0-1] : String;
+	}
+
+	abstract class GroupingElement extends StructuralElement {
+		reference groupContent[*] ordered container : Element oppositeOf group;
+	}
+
+	class G extends GroupingElement {
+		attribute name[0-1] : String;
+	}
+
+	class Defs extends GroupingElement {
+	}
+
+	class Symbol extends GroupingElement {
+	}
+
+	class Use extends StructuralElement {
+		reference use[*] : Element oppositeOf target;
+	}
+
+	abstract class GraphicalElement extends Element {
+		attribute stroke[0-1] : String;
+	}
+
+	abstract class Shape extends GraphicalElement {
+	}
+
+	abstract class TextElement extends GraphicalElement {
+		attribute rotate[0-1] : Double;
+		attribute textLength[0-1] : String;
+		attribute fontSize[0-1] : String;
+	}
+
+-- @comment Geometry
+	class Rect extends Shape {
+		attribute rx[0-1] : Double;
+		attribute ry[0-1] : Double;
+	}
+
+	class Circle extends Shape {
+	}
+
+	class Ellipse extends Shape {
+	}
+
+	class Line extends Shape {
+		reference between[2-2] : Point;
+		attribute markerEnd[0-1] : String;
+		attribute markerStart[0-1] : String;
+	}
+
+	class Polyline extends Shape {
+		reference waypoints[*] ordered container : Point;
+		attribute strokeDashArray[0-1] : String;
+		attribute markerEnd[0-1] : String;
+		attribute markerStart[0-1] : String;
+	}
+
+	class Polygon extends Shape {
+		reference waypoints[*] ordered : Point;
+		attribute markerEnd[0-1] : String;
+		attribute markerStart[0-1] : String;
+	}
+
+	class Path extends Shape {
+		attribute pathLength[0-1] : Double;
+		attribute d : String;
+		attribute markerEnd[0-1] : String;
+		attribute markerStart[0-1] : String;
+	}
+	
+	class Point extends Shape {
+	}
+
+	class Marker extends Shape {
+		attribute markerUnits[0-1] : String;
+		attribute refX[0-1] : Double;
+		attribute refY[0-1] : Double;
+		attribute markerWidth[0-1] : Double;
+		attribute markerHeight[0-1] : Double;
+		attribute orient[0-1] : String;
+		reference drawing[*] container : Element oppositeOf drawsMarker;
+	}
+-- End Geometry
+	
+-- @comment Text
+	class Text extends TextElement {
+		attribute lengthAdjust[0-1] : String;
+		attribute content : String;
+	}
+
+	class Tspan extends TextElement {
+		attribute content[0-1] : String;
+	}
+
+	class Tref extends TextElement {
+		reference xlinkHref : TextElement;
+	}
+-- End Text
+	
+-- @comment Special attributes
+	abstract class Attribute {
+		reference attOwner[*] : Element oppositeOf "attribute";
+	}
+
+	abstract class Transform extends Attribute {
+	}
+
+	class Scale extends Transform {
+		attribute sx : Double;
+		attribute sy : Double;
+	}
+
+	class Translate extends Transform {
+		attribute tx : Double;
+		attribute ty : Double;
+	}
+
+	class Rotate extends Transform {
+		attribute angle : Double;
+		attribute cx : Double;
+		attribute cy : Double;
+	}
+
+	class Visibility extends Attribute {
+		attribute visible : Boolean;
+	}
+	
+	class FontWeight extends Attribute {
+		attribute bold : Boolean;
+	}
+	
+	class FontStyle extends Attribute {
+		attribute italic : Boolean;
+	}
+-- End special attributes
+	
+-- @comment Coordinates and Dimension
+	-- @comment For width, height. length is the longer radius of an ellipse.
+	class Dimension {
+		attribute width : Double;
+		attribute height : Double;
+	}
+
+	-- @comment Coordinates are either relative or absolute
+	abstract class Coordinates {
+		attribute x : Double;
+		attribute y : Double;
+	}
+	
+	class RelativeCoord extends Coordinates {
+	}
+	
+	class AbsoluteCoord extends Coordinates {
+	}
+-- End Coordinates and Dimension
+
+-- @comment Files
+	-- @comment A file that is referenced by some tag in the document
+	abstract class ReferencedFile {
+		reference referer[*] : Image oppositeOf referee;
+		attribute name : String;
+	}
+
+	-- @comment A svg file that is referenced via a use tag calling its svg tag
+	class SvgFile extends ReferencedFile {
+		reference tag : Svg oppositeOf owner_SVG;
+		reference elements[*] : Element oppositeOf owner;
+	}
+-- End Files
+}
+
+package PrimitiveTypes {
+	datatype Boolean;
+	datatype Integer;
+	datatype String;
+	datatype Double;
+}
