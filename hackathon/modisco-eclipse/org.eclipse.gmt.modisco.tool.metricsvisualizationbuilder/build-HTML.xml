@@ -1,0 +1,86 @@
+<!--
+/********************************************************************************
+ * Copyright (c) 2009 INRIA. 
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors: 
+ *     INRIA - Initial implementation
+ *     
+ ******************************************************************************/
+-->
+
+<!-- author: Hugo Bruneliere -->
+
+<project name="MetricsVisualizationBuilder" default="buildVisualizations">
+
+	<property name="metricsName" value=""/>
+	<property name="metricsModelPath" value=""/>
+	<property name="outputFilesDirectoryPath" value=""/>
+
+	<target name="buildVisualizations" depends="loadMetamodels">
+
+		<!-- Load the Metrics model -->
+		<am3.loadModel modelHandler="EMF" name="metricsModel" metamodel="Metrics" path="${metricsModelPath}"/>
+
+		<!-- Generate the Table model from the Metrics model -->
+		<am3.atl path="Transformations/Metrics2Table.atl">
+			<inModel name="IN" model="metricsModel"/>
+			<inModel name="Metrics" model="Metrics"/>
+			<inModel name="Table" model="Table"/>
+			<outModel name="OUT" model="tableModel" metamodel="Table"/>
+		</am3.atl>
+		<!--
+			<am3.saveModel model="tableModel" path="${outputFilesDirectoryPath}/${metricsName}-Table.xmi"/>				
+		-->
+
+		<!-- Generate the HTML file from the Table model -->
+
+		<!-- Generate the HTML model from the Table model -->
+		<am3.atl path="Transformations/Table2XXX/Table2TabularHTML.atl">
+			<inModel name="IN" model="tableModel"/>
+			<inModel name="Table" model="Table"/>
+			<inModel name="HTML" model="HTML"/>
+			<outModel name="OUT" model="htmlModel" metamodel="HTML"/>
+		</am3.atl>
+		<!--
+			<am3.saveModel model="htmlModel" path="${outputFilesDirectoryPath}/${metricsName}-Html.xmi"/>
+		-->
+
+		<!-- Generate the XML model from the HTML model -->
+		<am3.atl path="Transformations/Table2XXX/Extractors/HTML2XML.atl">
+			<inModel name="IN" model="htmlModel"/>
+			<inModel name="HTML" model="HTML"/>
+			<inModel name="XML" model="XML"/>
+			<outModel name="OUT" model="htmlXmlModel" metamodel="XML"/>
+		</am3.atl>
+		<!--
+			<am3.saveModel model="htmlXmlModel" path="${outputFilesDirectoryPath}/${metricsName}-HtmlXml.xmi"/>
+		-->
+
+		<!-- Extract the HTML file from HTML XML model -->
+		<am3.saveModel model="htmlXmlModel" path="${outputFilesDirectoryPath}/${metricsName}.html">
+			<extractor name="xml"/>
+		</am3.saveModel>
+
+	</target>
+
+	<target name="loadMetamodels">
+
+		<!-- Load Metrics metamodel -->
+		<am3.loadModel modelHandler="EMF" name="Metrics" metamodel="MOF" path="Metamodels/Metrics.ecore" />
+
+		<!-- Load Table metamodel -->
+		<am3.loadModel modelHandler="EMF" name="Table" metamodel="MOF" path="Metamodels/Table.ecore" />
+
+		<!-- Load XML metamodel -->
+		<am3.loadModel modelHandler="EMF" name="XML" metamodel="MOF" path="Metamodels/XML.ecore" />
+
+		<!-- Load HTML metamodel -->
+		<am3.loadModel modelHandler="EMF" name="HTML" metamodel="MOF" path="Metamodels/HTML.ecore" />
+
+	</target>
+
+</project>

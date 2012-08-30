@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.adt.launching.atlTransformation">
+<stringAttribute key="ATL File Name" value="/org.eclipse.gmt.modisco.tool.metricsvisualizationbuilder/Transformations/Table2XXX/Extractors/HTML2XML.atl"/>
+<stringAttribute key="ATL VM" value="EMF-specific VM"/>
+<stringAttribute key="ATL_COMPILER" value="atl2006"/>
+<booleanAttribute key="IS_REFINING" value="false"/>
+<mapAttribute key="Input">
+<mapEntry key="IN" value="HTML"/>
+</mapAttribute>
+<mapAttribute key="Libs"/>
+<mapAttribute key="Model Handler">
+<mapEntry key="HTML" value="EMF"/>
+<mapEntry key="XML" value="EMF"/>
+</mapAttribute>
+<mapAttribute key="ModelType">
+<mapEntry key="HTML" value="METAMODELINPUT"/>
+<mapEntry key="IN" value="MODELINPUT"/>
+<mapEntry key="OUT" value="MODELOUTPUT"/>
+<mapEntry key="XML" value="METAMODELOUTPUT"/>
+</mapAttribute>
+<mapAttribute key="Options">
+<mapEntry key="OPTION_CLEAR" value="false"/>
+<mapEntry key="OPTION_CONTENT_TYPE" value="false"/>
+<mapEntry key="OPTION_DERIVED" value="false"/>
+<mapEntry key="allowInterModelReferences" value="false"/>
+<mapEntry key="printExecutionTime" value="false"/>
+<mapEntry key="step" value="false"/>
+<mapEntry key="supportUML2Stereotypes" value="false"/>
+</mapAttribute>
+<listAttribute key="OrderedInput">
+<listEntry value="IN"/>
+</listAttribute>
+<listAttribute key="OrderedOutput">
+<listEntry value="OUT"/>
+</listAttribute>
+<mapAttribute key="Output">
+<mapEntry key="OUT" value="XML"/>
+</mapAttribute>
+<mapAttribute key="Path">
+<mapEntry key="HTML" value="/org.eclipse.gmt.modisco.tool.metricsvisualizationbuilder/Metamodels/HTML.ecore"/>
+<mapEntry key="IN" value="/SoTeSoLa-Hackathon/Models/Temp/javaStatic-ClassStatistics_HTML.xmi"/>
+<mapEntry key="OUT" value="/SoTeSoLa-Hackathon/Models/Temp/javaStatic-ClassStatistics_HTML-XML.xmi"/>
+<mapEntry key="XML" value="/org.eclipse.gmt.modisco.tool.metricsvisualizationbuilder/Metamodels/XML.ecore"/>
+</mapAttribute>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>

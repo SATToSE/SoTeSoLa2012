@@ -1,0 +1,141 @@
+--@atlcompiler atl2006
+
+-- ******************************************************************************
+-- Copyright (c) 2007 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  
+-- ******************************************************************************
+
+--@author Hugo Bruneliere (Hugo.Bruneliere <at> gmail.com)
+
+module Table2SpreadsheetMLSimplified; -- Module Template
+create OUT : SpreadsheetMLSimplified from IN : Table;
+
+
+-- This helper permits to determine whether a string contains a number value or not.
+-- The method used in this helper is not exactly correct because it considers as a number 
+-- a string that can be composed of several '.' characters. It should be improved in order 
+-- to solve this problem. However, the helper returns the right value in most cases. 
+-- CONTEXT: n/a
+-- RETURN: Boolean
+helper context Table!Cell def: isNumber(value : String, itIsFirstChar : Boolean) : Boolean =
+	if value <> ''
+	then
+		let char : String =  value.substring(1,1)
+		in
+			if( char = '.' or char = '0' or char = '1' or char = '2' or char = '3' or char = '4' 
+				or char = '5' or char = '6' or char = '7' or char = '8' or char = '9')
+			then
+				self.isNumber(value.substring(2,value.size()),false)
+			else
+				false
+			endif
+	else
+		if itIsFirstChar
+		then
+			false
+		else
+			true
+		endif
+	endif;
+
+helper def: MetricNumber : Integer = 1;
+
+
+-- Rule 'CreateExcelWorkbook'
+entrypoint rule CreateExcelWorkbook() {
+	to
+		wb : SpreadsheetMLSimplified!Workbook (
+			wb_worksheets <- Table!Table.allInstances()
+								->sortedBy(table|table.rows->first().cells->at(2).content)
+								->collect(t | thisModule.Table2ExcelTable(t))
+		)
+}
+
+-- Rule 'Table2ExcelTable'
+-- This rule generates a different Excel worksheet for each table
+lazy rule Table2ExcelTable {
+	from 
+		t : Table!Table
+	to 
+		ws : SpreadsheetMLSimplified!Worksheet (
+			name <- 'Metric ' + thisModule.MetricNumber.toString(),
+			ws_table <- et
+		),
+		et : SpreadsheetMLSimplified!Table (
+			t_rows <- t.rows->collect(r | thisModule.Row2ExcelRow(r)),
+			t_cols <- t.rows->first().cells->collect(c | thisModule.CreateColumn(c))
+		)
+	do {
+		thisModule.MetricNumber <- thisModule.MetricNumber + 1;
+	}
+}
+
+-- Rule 'CreateColumn'
+-- This rule generates a column with the default width
+lazy rule CreateColumn {
+	from 
+		cell : Table!Cell	
+	to
+		ecol : SpreadsheetMLSimplified!Column (
+			width <- 200.0
+		)
+}
+
+-- Rule 'Row2ExcelRow'
+-- This rule generates the rows that will contain the cells 
+lazy rule Row2ExcelRow {
+	from 
+		row : Table!Row
+	
+	to
+		erow : SpreadsheetMLSimplified!Row (
+			r_cells <- row.cells->collect(c | thisModule.Cell2ExcelCell(c))
+		)
+}
+
+-- Rule 'Cell2ExcelCell'
+-- This rule generates the cells that will contain the data
+lazy rule Cell2ExcelCell {
+	from 
+		cell : Table!Cell
+	to
+		ecell : SpreadsheetMLSimplified!Cell (
+			c_data <- edata
+		),
+		edata : SpreadsheetMLSimplified!Data (
+			value <- if cell.isNumber(cell.content,true) then
+						thisModule.CreateNumberValue(cell)
+					 else
+					 	thisModule.CreateStringValue(cell)
+					 endif
+		)
+}
+
+-- Rule 'CreateStringValue'
+-- This rule generates the string value that will be contained in the cell
+lazy rule CreateStringValue {
+	from 
+		cell : Table!Cell
+	to	
+		stringVal : SpreadsheetMLSimplified!StringValue (
+			value <- cell.content
+		)
+}
+
+-- Rule 'CreateNumberValue'
+-- This rule generates the number value that will be contained in the cell
+lazy rule CreateNumberValue {
+	from 
+		cell : Table!Cell
+	to	
+		numberVal : SpreadsheetMLSimplified!NumberValue (
+			value <- cell.content.toReal()
+		)
+}

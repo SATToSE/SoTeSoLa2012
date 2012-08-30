@@ -1,0 +1,190 @@
+-- @atlcompiler atl2010
+
+-- @nsURI Java=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+
+-- ******************************************************************************
+-- Copyright (c) 2012 INRIA & Ecole des Mines de Nantes. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	Hugo Bruneliere - Initial implementation
+--  
+-- ******************************************************************************
+
+module CreateAbstractClass;
+create OUT : Java refining IN : Java;
+
+
+-- Helper attribute to get the String Java type
+helper def: getClassDeclaration(name : String) : Java!ClassDeclaration =
+	Java!ClassDeclaration.allInstancesFrom('IN')->select(cd | cd.name = name)->first();
+
+-- Helper variable to store the created abstract class
+helper def: createdAbstractClass : Java!ClassDeclaration = OclUndefined;
+
+
+rule DropNameGettersAndSetters {
+	from
+		md : Java!MethodDeclaration (
+			(md.name = 'getName' or md.name = 'setName') -- Check method name
+				and
+			md.abstractTypeDeclaration.package.name = 'model' -- Check class package name	
+		)
+	to
+		drop
+}
+
+rule DropNameAttributes {
+	from
+		nad : Java!FieldDeclaration (
+			nad.fragments->first().name = 'name' -- Check attribute name
+				and
+			nad.abstractTypeDeclaration.package.name = 'model' -- Check class package name	
+		)
+	to
+		drop
+}
+
+rule CreateAbstractClass {
+	from
+		ip : Java!Package (
+			ip.name = 'model' -- Check package name
+		)
+	to
+		op : Java!Package,
+		ncu : Java!CompilationUnit (
+			name <- 'NamedElement.java',
+			package <- op,
+			types <- Sequence{ncd}
+		),
+		ncd : Java!ClassDeclaration (
+			package <- op,
+			originalCompilationUnit <- ncu,
+			name <- 'NamedElement',
+			modifier <- classMod,
+			bodyDeclarations <- Sequence{nameAtt,nameGetter,nameSetter}
+		),
+		classMod : Java!Modifier (
+			visibility <- #public,
+			inheritance <- #"abstract"
+		),
+		-- "Name" attribute creation
+		nameAtt : Java!FieldDeclaration (
+			originalCompilationUnit <- ncu,
+			modifier <- attMod,
+			type <- attType,
+			fragments <- Sequence{attFrag}
+		),
+		attMod : Java!Modifier (
+			visibility <- #private
+		),
+		attType : Java!TypeAccess (
+			type <- thisModule.getClassDeclaration('String')
+		),
+		attFrag : Java!VariableDeclarationFragment (
+			originalCompilationUnit <- ncu,
+			name <- 'name'
+		),
+		-- "getName" getter creation
+		nameGetter: Java!MethodDeclaration (
+			originalCompilationUnit <- ncu,
+			name <- 'getName',
+			modifier <- getterMod,
+			body <- getterBody,
+			returnType <- getterReturn
+		),
+		getterMod : Java!Modifier (
+			visibility <- #public	
+		),
+		getterReturn : Java!TypeAccess (
+			type <- thisModule.getClassDeclaration('String')
+		),
+		getterBody : Java!Block (
+			originalCompilationUnit <- ncu,
+			statements <- Sequence{getterRS}
+		),
+		getterRS : Java!ReturnStatement (
+			originalCompilationUnit <- ncu,
+			expression <- getterEx
+		),
+		getterEx : Java!FieldAccess (
+			originalCompilationUnit <- ncu,
+			field <- getterFD,
+			expression <- getterFDEx
+		),
+		getterFD : Java!SingleVariableAccess (
+			variable <- attFrag	
+		),
+		getterFDEx : Java!ThisExpression (
+			originalCompilationUnit <- ncu
+		),
+		-- "setName" setter creation
+		nameSetter: Java!MethodDeclaration (
+			originalCompilationUnit <- ncu,
+			name <- 'setName',
+			modifier <- setterMod,
+			body <- setterBody,
+			parameters <- Sequence{setterParam},
+			returnType <- setterReturn
+		),
+		setterMod : Java!Modifier (
+			visibility <- #public	
+		),
+		setterParam : Java!SingleVariableDeclaration (
+			originalCompilationUnit <- ncu,
+			name <- 'name',
+			modifier <- getterParamMod,
+			type <- getterParamType
+		),
+		getterParamMod : Java!Modifier (),
+		getterParamType : Java!TypeAccess (
+			type <- thisModule.getClassDeclaration('String')
+		),
+		setterReturn : Java!TypeAccess (
+			type <- Java!PrimitiveTypeVoid.allInstancesFrom('IN')->first()
+		),
+		setterBody : Java!Block (
+			originalCompilationUnit <- ncu,
+			statements <- Sequence{setterExpSt}
+		),
+		setterExpSt : Java!ExpressionStatement (
+			originalCompilationUnit <- ncu,
+			expression <- setterAssigExp
+		),
+		setterAssigExp : Java!Assignment (
+			originalCompilationUnit <- ncu,
+			leftHandSide <- setterLeftEx,
+			rightHandSide <- setterRightEx
+		),
+		setterLeftEx : Java!FieldAccess (
+			originalCompilationUnit <- ncu,
+			field <- setterFD,
+			expression <- setterFDEx
+		),
+		setterFD : Java!SingleVariableAccess (
+			variable <- attFrag	
+		),
+		setterFDEx : Java!ThisExpression (
+			originalCompilationUnit <- ncu
+		),
+		setterRightEx : Java!SingleVariableAccess (
+			variable <- setterParam	
+		)
+}
+
+rule ModifyExistingClasses {
+	from
+		cd : Java!ClassDeclaration (
+			cd.package.package.name = 'softlang'		
+		)
+	to
+		ucd : Java!ClassDeclaration (
+			superClass <- typeClass
+		),
+		typeClass : Java!TypeAccess (
+			type <- thisModule.resolveTemp(cd.package, 'ncd')
+		)
+}
