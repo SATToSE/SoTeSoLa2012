@@ -1,0 +1,21 @@
+[submodule "hackathon/101JMLSpecifications"]
+	path = hackathon/101JMLSpecifications
+	url = https://github.com/rbonifacio/101JMLSpecifications.git
+[submodule "hackathon/JavaExorcismSPL"]
+	path = hackathon/JavaExorcismSPL
+	url = https://github.com/JeffersonAlmeida/JavaExorcismSPL.git
+[submodule "hackathon/coupling-xml"]
+	path = hackathon/coupling-xml
+	url = https://github.com/rlaemmel/coupling101demo.git
+[submodule "hackathon/hack-a-graph"]
+	path = hackathon/hack-a-graph
+	url = https://github.com/tsdh/sotesola2012.git
+[submodule "hackathon/json-python"]
+	path = hackathon/json-python
+	url = https://github.com/rlaemmel/json101demo.git
+[submodule "hackathon/loc-python"]
+	path = hackathon/loc-python
+	url = https://github.com/rlaemmel/loc101demo.git
+[submodule "hackathon/octo-hipster"]
+	path = hackathon/octo-hipster
+	url = https://github.com/ReinoutStevens/octo-hipster.git
