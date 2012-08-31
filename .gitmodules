@@ -1,9 +1,6 @@
 [submodule "hackathon/101JMLSpecifications"]
 	path = hackathon/101JMLSpecifications
 	url = https://github.com/rbonifacio/101JMLSpecifications.git
-[submodule "hackathon/JavaExorcismSPL"]
-	path = hackathon/JavaExorcismSPL
-	url = https://github.com/JeffersonAlmeida/JavaExorcismSPL.git
 [submodule "hackathon/coupling-xml"]
 	path = hackathon/coupling-xml
 	url = https://github.com/rlaemmel/coupling101demo.git
@@ -19,3 +16,6 @@
 [submodule "hackathon/octo-hipster"]
 	path = hackathon/octo-hipster
 	url = https://github.com/ReinoutStevens/octo-hipster.git
+[submodule "hackathon/SPG"]
+	path = hackathon/SPG
+	url = https://github.com/JeffersonAlmeida/JavaExorcismSPL.git
