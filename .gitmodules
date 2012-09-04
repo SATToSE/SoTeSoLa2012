@@ -19,3 +19,6 @@
 [submodule "hackathon/SPG"]
 	path = hackathon/SPG
 	url = https://github.com/JeffersonAlmeida/JavaExorcismSPL.git
+[submodule "wiki"]
+	path = wiki
+	url = git@github.com:SoTeSoLa/SoTeSoLa.wiki.git
