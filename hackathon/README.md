@@ -9,7 +9,7 @@ Hackathon on reverse engineering the [101companies](http://101companies.org) rep
 Contributions:
 * *Rodrigo Bonifácio* et al — **101JMLSpecifications**: [repo](https://github.com/rbonifacio/101JMLSpecifications), 
 [album](http://planet-sl.org/community/index.php?option=com_community&view=photos&task=album&albumid=19&groupid=19&Itemid=385&lang=en)
-* *Jean-Sébastien Sottet* and *Hugo Bruneliere* — **modisco-eclipse**: [repo](https://github.com/SoTeSoLa/SoTeSoLa/tree/master/hackathon/modisco-eclipse)
+* *Jean-Sébastien Sottet* and *Hugo Bruneliere* — **modisco-eclipse**: [repo](http://github.com/SATToSE/SoTeSoLa2012/tree/master/hackathon/modisco-eclipse)
 * *Tassilo Horn* et al — **hack-a-graph**: [repo](https://github.com/tsdh/sotesola2012)
 * *Reinout Stevens* et al — **octo-hipster**: [repo](https://github.com/ReinoutStevens/octo-hipster), [album](http://planet-sl.org/community/index.php?option=com_community&view=photos&task=album&albumid=18&groupid=19&Itemid=385&lang=en)
 * [read more…](http://bit.ly/Qc8yx0)
